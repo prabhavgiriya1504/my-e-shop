@@ -67,7 +67,7 @@ export default function Checkout() {
               </Button>
             </Box>
 
-            <div>
+            <div className='mt-10'>
               {step === 1 ? <DeliveryAddresssForm /> : <OrderSummary />}
             </div>
           </React.Fragment>

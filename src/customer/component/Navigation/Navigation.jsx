@@ -36,11 +36,16 @@ function classNames(...classes) {
 export default function Navigation() {
   const [open, setOpen] = useState(false);
    const navigate = useNavigate();
+
  const [anchorEl, setAnchorEl] = useState(null);
+
+
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
     close();
   };
+
+
   const handleCloseUserMenu = (event) => {
     setAnchorEl(null);
   };
@@ -160,8 +165,8 @@ export default function Navigation() {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <p className="-m-2 block p-2 text-gray-500">
-                                    {"item.name"}
+                                  <p onClick={()=>navigate("/men/clothing/shirt")} className="-m-2 block p-2 text-gray-500">
+                                    {"clothings"}
                                   </p>
                                 </li>
                               ))}
@@ -420,7 +425,7 @@ export default function Navigation() {
                         <MenuItem onClick={handleCloseUserMenu}>
                          Profile
                         </MenuItem>
-                        <MenuItem> My Orders</MenuItem>
+                        <MenuItem onClick={()=>navigate("/account/order")}> My Orders</MenuItem>
                         <MenuItem >Logout</MenuItem>
                       </Menu>
                     </div>
@@ -447,8 +452,9 @@ export default function Navigation() {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="https://google.com" className="group -m-2 flex items-center p-2">
+                  <div className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
+                    onClick={()=> navigate("/cart")}
                       aria-hidden="true"
                       className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                     />
@@ -456,7 +462,7 @@ export default function Navigation() {
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
