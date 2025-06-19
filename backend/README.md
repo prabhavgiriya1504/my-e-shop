@@ -1,2 +1,2 @@
 # Backend (Spring Boot)
-This folder contains the backend code of the project.
+backend for this project is in another repository  my_e_shop(backend)
