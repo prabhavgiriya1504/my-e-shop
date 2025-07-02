@@ -1,6 +1,6 @@
 
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -16,7 +16,7 @@ import {
   TabPanels,
   Transition,
 } from "@headlessui/react";
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -28,6 +28,9 @@ import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 
 import { navigation } from "./navigation.js";
 import { deepPurple } from "@mui/material/colors";
+import AuthModal from "../Auth/AuthModal.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, logout } from "../../../State/Auth/Action.js";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -35,10 +38,18 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const [openAuthModal , setOpenAuthModal] = useState(false);
+
    const navigate = useNavigate();
 
- const [anchorEl, setAnchorEl] = useState(null);
+   const jwt = localStorage.getItem("jwt");
 
+ const [anchorEl, setAnchorEl] = useState(null);
+ const dispatch = useDispatch();
+
+const openUserMenu = Boolean(anchorEl);
+const {auth} = useSelector(store=>store);
+const location = useLocation();
 
   const handleCategoryClick = (category, section, item, close) => {
     navigate(`/${category.id}/${section.id}/${item.id}`);
@@ -49,11 +60,41 @@ export default function Navigation() {
   const handleCloseUserMenu = (event) => {
     setAnchorEl(null);
   };
-  const openUserMenu = Boolean(anchorEl);
+  
 
   const handleUserClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const handleOpen = () => {
+    setOpenAuthModal(true);
+  };
+  const handleClose = () => {
+    setOpenAuthModal(false);
+  };
+
+   useEffect(()=>{
+      if(jwt){
+        dispatch(getUser(jwt));
+      }
+    },[jwt , auth.jwt]);
+
+     useEffect(()=>{
+          if(auth.user){
+            handleClose();
+          }
+          if(location.pathname==="/login" || location.pathname==="/register"){
+                 navigate(-1);
+          }
+     },[auth.user]);
+
+    const handleLogout = () => {
+      dispatch(logout());
+      handleCloseUserMenu();
+    }
+
+
+
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -387,7 +428,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {true ? (
+                  {auth.user?.firstName ? (
                     <div>
                       <Avatar
                         className="text-white"
@@ -402,7 +443,7 @@ export default function Navigation() {
                           cursor: "pointer",
                         }}
                       >
-                        {/* {auth.user?.firstName[0].toUpperCase()} */}
+                        {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
                       {/* <Button
                         id="basic-button"
@@ -426,12 +467,12 @@ export default function Navigation() {
                          Profile
                         </MenuItem>
                         <MenuItem onClick={()=>navigate("/account/order")}> My Orders</MenuItem>
-                        <MenuItem >Logout</MenuItem>
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </Menu>
                     </div>
                   ) : (
                     <Button
-                      // onClick={handleOpen}
+                      onClick={handleOpen}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       Signin
@@ -469,6 +510,8 @@ export default function Navigation() {
           </div>
         </nav>
       </header>
+          
+      <AuthModal handleClose={handleClose} open={openAuthModal} />
     </div>
   );
 }
