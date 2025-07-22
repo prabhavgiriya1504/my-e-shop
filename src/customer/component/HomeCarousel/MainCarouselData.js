@@ -2,35 +2,35 @@
 
 export const mainCarouselData = [
   {
-    image: "https://tse3.mm.bing.net/th/id/OIP.U_VJuupQohwnzXcKMztqWgHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    image: "/pexels-manjeet-singh-yadav-462762-1162985.jpg",
     path: "/women/clothing/lengha_choli",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/2/12_4.jpg",
+    image: "/pexels-olly-842811.jpg",
     path: "/women/clothing/women_dress",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/9/_/9_8.jpg",
+    image: "/pexels-vikashkr50-27155550.jpg",
     path: "/women/clothing/women_dress",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/1/11_4.jpg",
+    image: "/pexels-haven-1253375.jpg",
     path: "/women/clothing/women_saree",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/4/14_1.jpg",
+    image: "/pexels-olly-3755706.jpg",
     path: "/women/clothing/women_kurti",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/3/13_3.jpg",
+    image: "/pexels-pixabay-265705.jpg",
     path: "/women/clothing/women_gown",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/5/15_2.jpg",
+    image: "/pexels-moose-photos-170195-1586996.jpg",
     path: "/women/clothing/women_lehenga",
   },
   {
-    image: "https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/6/16_6.jpg",
+    image: "/pexels-wafiy-azizol-2154195820-33105998.jpg",
     path: "/women/clothing/women_salwar_suit",
   }
 ];

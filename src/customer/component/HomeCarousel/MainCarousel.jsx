@@ -5,7 +5,18 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 const MainCarousel = () => {
 
-     const items = mainCarouselData.map((item) => <img className='cursor-pointer' role='presentation' src={item.image} alt=''/>);
+    const items = mainCarouselData.map((item, index) => (
+  <div key={index} className="mt-4 flex justify-center items-center w-full">
+    <img
+      className="w-[1100px] h-[650px] object-cover rounded-md shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
+      role="presentation"
+      src={item.image}
+      alt={`carousel-image-${index}`}
+    />
+  </div>
+));
+
+
   return (
     <div>
       <AliceCarousel 

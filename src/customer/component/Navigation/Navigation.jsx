@@ -206,7 +206,7 @@ const location = useLocation();
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <p onClick={()=>navigate("/men/clothing/shirt")} className="-m-2 block p-2 text-gray-500">
+                                  <p onClick={()=>navigate("/men/clothing/mens_kurta")} className="-m-2 block p-2 text-gray-500">
                                     {"clothings"}
                                   </p>
                                 </li>
