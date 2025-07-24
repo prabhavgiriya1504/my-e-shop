@@ -334,7 +334,7 @@ import Rating from '@mui/material/Rating';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Box, Grid } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
-import { mens_kurta } from "../../../Data/mens_kurta";
+import { mens_kurta } from "../../../Data/men/mens_kurta";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

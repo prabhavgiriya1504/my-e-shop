@@ -13,11 +13,11 @@ const HomeSectionCarousel = ({data , sectionName}) => {
     1024: { items: 5.5 },
   };
   const slidePrev = (() => {
-    console.log("prev clicked   "+activeIndex);
+    
     setActiveIndex(activeIndex - 1);
   });
   const slideNext = (() => {
-    console.log(" next clicked   "+activeIndex)
+    
     setActiveIndex(activeIndex + 1);
 
   });

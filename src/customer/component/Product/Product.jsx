@@ -601,7 +601,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import { mens_kurta } from "../../../Data/mens_kurta";
+import { mens_kurta } from "../../../Data/men/mens_kurta";
 
 import FilterListIcon from '@mui/icons-material/FilterList';
 import ProductCard from "./ProductCard";
@@ -741,7 +741,7 @@ export default function Product() {
       minDiscount:discountValue || 0,
       sort:sortValue || "price_low",
       pageNumber: pageNumber-1,
-      pageSize:2,
+      pageSize:8,
       stock:stock
     }
 
