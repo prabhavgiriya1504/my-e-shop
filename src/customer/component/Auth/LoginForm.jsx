@@ -19,7 +19,7 @@ const LoginForm = () => {
 
            dispatch(login(userData));
 
-           console.log("user from login form ... ",userData);
+           console.log("user data from login form is sent to server");
 
            
   };

@@ -403,7 +403,7 @@ const navigate = useNavigate();
 const handleAddToCart = (e) => {
      
   const data = {productId:params.productId , size:selectedSize.name}
-  console.log("datat with size : ",data)
+  console.log("data of product as per your selection is sent to server.....")
   dispatch(addItemToCart(data))
     navigate("/cart");
 }

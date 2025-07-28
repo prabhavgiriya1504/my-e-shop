@@ -29,7 +29,7 @@ const RegisterForm = () => {
            }
 
            dispatch(register(userData));
-           console.log("userData " , userData);
+           console.log("userData from register form is sent to server...");
   };
   return (
     <div>

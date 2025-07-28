@@ -23,7 +23,7 @@ const handleDeliveryAdress = () => {
       zipCode: data.get("zip"),
       phone: data.get("phoneNumber")
    }
-   console.log("address : ", address);
+   console.log("address is sent to servr......");
   }
   return (
     <div>
