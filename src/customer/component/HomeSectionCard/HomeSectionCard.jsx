@@ -10,10 +10,10 @@ const HomeSectionCard = ({ product , sectionName }) => {
         navigate("/men/clothing/mens_kurta");
         break;
       case "Women's Goun":
-        navigate("/women/clothing/gouns");
+        navigate("/women/clothing/gown");
         break;
       case "Women's Kurti":
-        navigate("/women/clothing/kurtas");
+        navigate("/women/clothing/kurta");
         break;
       default: 
          navigate("/");
