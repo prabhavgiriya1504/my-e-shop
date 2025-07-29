@@ -2,11 +2,26 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
-const HomeSectionCard = ({ product }) => {
+const HomeSectionCard = ({ product , sectionName }) => {
   const navigate = useNavigate();
+  const handleCardClick = () => {
+    switch(sectionName){
+      case "Men's Kurtas":
+        navigate("/men/clothing/mens_kurta");
+        break;
+      case "Women's Goun":
+        navigate("/women/clothing/gouns");
+        break;
+      case "Women's Kurti":
+        navigate("/women/clothing/kurtas");
+        break;
+      default: 
+         navigate("/");
+    }
+  }
 
   return (
-    <div onClick={()=>navigate(`/product/${5}`)} className='cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3 border'>
+    <div onClick={handleCardClick} className='cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3 border'>
         <div className='h-[13rem] w-[10rem]'>
             <img className='object-cover object-top w-full h-full' src={product.imageUrl} alt="" />
         </div>

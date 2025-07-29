@@ -26,7 +26,7 @@ const HomeSectionCarousel = ({data , sectionName}) => {
 
 
   // const items = mens_kurta.slice(0, 10).map((item) => <HomeSectionCard  product={item} />);
-  const items = (Array.isArray(data))?(data.slice(0, 10).map((item) => <HomeSectionCard  product={item} />)):[];
+  const items = (Array.isArray(data))?(data.slice(0, 10).map((item) => <HomeSectionCard  product={item} sectionName={sectionName} />)):[];
   return (
     <div className=" border">
       <h2 className="text-2xl font-extrabold text-gray-800 py-5">{sectionName}</h2>
