@@ -34,9 +34,9 @@ const RegisterForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={3}>
-          <Grid className="flex flex-row ">
-            <Grid item xs={12} sm={6} className="pr-3">
+        <Grid container spacing={3} className="justify-center items-center">
+          
+            <Grid item xs={12} sm={12} className="pr-3 w-[70vw] md:w-full">
               <TextField
                 required
                 id="firstName"
@@ -46,7 +46,7 @@ const RegisterForm = () => {
                 autoComplete="given-name"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={12} className="w-[70vw] md:w-full">
               <TextField
                 required
                 id="lastName"
@@ -56,8 +56,8 @@ const RegisterForm = () => {
                 autoComplete="given-name"
               />
             </Grid>
-          </Grid>
-          <Grid item xs={12} className="w-full">
+          
+          <Grid item xs={12} className="w-[70vw] md:w-full">
             <TextField
               required
               id="email"
@@ -67,7 +67,7 @@ const RegisterForm = () => {
               autoComplete="email"
             />
           </Grid>
-          <Grid item xs={12} className="w-full">
+          <Grid item xs={12} className="w-[70vw] md:w-full">
             <TextField
               required
               id="password"
@@ -77,7 +77,7 @@ const RegisterForm = () => {
               autoComplete="password"
             />
           </Grid>
-          <Grid item xs={12} className="w-full">
+          <Grid item xs={12} className="w-[70vw] md:w-full">
             <Button
               className="bg-[#9155FD] w-full"
               type="submit"
