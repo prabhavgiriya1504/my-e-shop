@@ -701,6 +701,52 @@ export default function Navigation() {
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
+                {/* Auth section for mobile */}
+                  {auth.user?.firstName ? (
+                    <div className="flow-root mb-4"> {/* Added margin bottom */}
+                      <div className="flex items-center space-x-3 -m-2 p-2">
+                        <Avatar
+                          className="text-white"
+                          onClick={handleUserClick} // Use existing handleUserClick
+                          aria-controls={openUserMenu ? "mobile-basic-menu" : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={openUserMenu ? "true" : undefined}
+                          sx={{
+                            bgcolor: deepPurple[500],
+                            color: "white",
+                            cursor: "pointer",
+                          }}
+                        >
+                          {auth.user?.firstName[0].toUpperCase()}
+                        </Avatar>
+                        <span className="font-medium text-gray-900">
+                          Hello, {auth.user?.firstName}
+                        </span>
+                      </div>
+                      <Menu
+                        id="mobile-basic-menu"
+                        anchorEl={anchorEl}
+                        open={openUserMenu}
+                        onClose={handleCloseUserMenu}
+                        MenuListProps={{
+                          "aria-labelledby": "mobile-basic-button",
+                        }}
+                      >
+                        <MenuItem onClick={() => { handleCloseUserMenu(); navigate("/profile"); setOpen(false); }}>Profile</MenuItem>
+                        <MenuItem onClick={() => { handleCloseUserMenu(); navigate("/account/order"); setOpen(false); }}>My Orders</MenuItem>
+                        <MenuItem onClick={() => { handleLogout(); setOpen(false); }}>Logout</MenuItem>
+                      </Menu>
+                    </div>
+                  ) : (
+                    <div className="flow-root mb-4">
+                      <Button
+                        onClick={() => { handleOpenAuthModal(); setOpen(false); }} // Close mobile menu when opening auth modal
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800 w-full justify-start normal-case"
+                      >
+                        <span className="animate-bounce">Sign in</span>
+                      </Button>
+                    </div>
+                  )}
 
                 {/* Links */}
                 <TabGroup as="div" className="mt-2">
@@ -813,52 +859,7 @@ export default function Navigation() {
 
                 {/* Authentication and Cart for Mobile Menu */}
                 <div className="border-t border-gray-200 px-4 py-6">
-                  {/* Auth section for mobile */}
-                  {auth.user?.firstName ? (
-                    <div className="flow-root mb-4"> {/* Added margin bottom */}
-                      <div className="flex items-center space-x-3 -m-2 p-2">
-                        <Avatar
-                          className="text-white"
-                          onClick={handleUserClick} // Use existing handleUserClick
-                          aria-controls={openUserMenu ? "mobile-basic-menu" : undefined}
-                          aria-haspopup="true"
-                          aria-expanded={openUserMenu ? "true" : undefined}
-                          sx={{
-                            bgcolor: deepPurple[500],
-                            color: "white",
-                            cursor: "pointer",
-                          }}
-                        >
-                          {auth.user?.firstName[0].toUpperCase()}
-                        </Avatar>
-                        <span className="font-medium text-gray-900">
-                          Hello, {auth.user?.firstName}
-                        </span>
-                      </div>
-                      <Menu
-                        id="mobile-basic-menu"
-                        anchorEl={anchorEl}
-                        open={openUserMenu}
-                        onClose={handleCloseUserMenu}
-                        MenuListProps={{
-                          "aria-labelledby": "mobile-basic-button",
-                        }}
-                      >
-                        <MenuItem onClick={() => { handleCloseUserMenu(); navigate("/profile"); setOpen(false); }}>Profile</MenuItem>
-                        <MenuItem onClick={() => { handleCloseUserMenu(); navigate("/account/order"); setOpen(false); }}>My Orders</MenuItem>
-                        <MenuItem onClick={() => { handleLogout(); setOpen(false); }}>Logout</MenuItem>
-                      </Menu>
-                    </div>
-                  ) : (
-                    <div className="flow-root mb-4">
-                      <Button
-                        onClick={() => { handleOpenAuthModal(); setOpen(false); }} // Close mobile menu when opening auth modal
-                        className="text-sm font-medium text-gray-700 hover:text-gray-800 w-full justify-start normal-case"
-                      >
-                        <span className="animate-bounce">Sign in</span>
-                      </Button>
-                    </div>
-                  )}
+                  
 
                   {/* Cart for mobile */}
                   <div className="flow-root">

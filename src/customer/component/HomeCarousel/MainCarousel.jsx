@@ -8,7 +8,7 @@ const MainCarousel = () => {
     const items = mainCarouselData.map((item, index) => (
   <div key={index} className="mt-4 flex justify-center items-center w-full">
     <img
-      className="w-[1100px] h-[650px] object-cover rounded-md shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
+      className="w-[90vw] h-[360px] md:w-[1100px] md:h-[650px] object-cover rounded-md shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
       role="presentation"
       src={item.image}
       alt={`carousel-image-${index}`}

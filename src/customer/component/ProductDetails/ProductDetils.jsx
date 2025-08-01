@@ -137,12 +137,12 @@ return (
       </nav>
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10">
         {/* Image gallery */}
-        <div className="flex flex-col items-center">
-          <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
+       
+          <div className="flex justify-center overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem] ">
               <img
               alt={producti.images[0].alt}
               src={product.product?.imageUrl}
-              className="hidden size-full rounded-lg object-cover lg:block"
+              className=" size-full rounded-lg object-cover "
               />
           </div>
           {/* <div className="flex flex-wrap space-x-5 justify-center">
@@ -154,7 +154,7 @@ return (
                   />
               </div>)}
           </div> */}
-        </div>
+       
 
         {/* Product info */}
         <div className="lg:col-span-1 maxt-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8 lg:pb-24">
